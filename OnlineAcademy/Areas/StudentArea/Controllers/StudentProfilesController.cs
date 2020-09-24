@@ -44,6 +44,12 @@ namespace OnlineAcademy.Areas.StudentArea.Controllers
         // GET: StudentArea/StudentProfiles/Create
         public ActionResult Create()
         {
+            var userId = User.Identity.GetUserId();
+            var check = db.StudentProfiles.Where(x => x.UserId == userId).SingleOrDefault();
+            if(check != null)
+            {
+                return RedirectToAction("StudentHome", "StudentHome", new { area = "StudentArea" });
+            }
             ViewBag.CityId = new SelectList(ddb.Cities, "Id", "Name");
             ViewBag.CountryId = new SelectList(ddb.Countries, "Id", "Name");
             ViewBag.TermId = new SelectList(db.CurrentTerms, "Id", "Name");

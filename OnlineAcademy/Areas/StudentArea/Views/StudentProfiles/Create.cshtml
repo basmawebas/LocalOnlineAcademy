@@ -33,7 +33,7 @@
         <div class="col-md-6">
             <div class="form-group ">
                 <div class="col-md-12 ">
-                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new {  @class = "form-control text-right", @placeholder = "الاسم الاول" } })
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new {  @class = "form-control text-right", @placeholder = "الاسم الاخير" } })
                     @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -41,7 +41,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @id = "name", @class = "form-control text-right", @placeholder = "الاسم الاخير" } })
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @id = "name", @class = "form-control text-right", @placeholder = "الاسم الاول " } })
                     @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -86,10 +86,10 @@
 
     <div class="form-group text-right">
         <div class="col-md-12">
-            @Html.Label("ذكر", htmlAttributes: new { @class = "control-label text-right  col-md-2" })
-            @Html.RadioButtonFor(x => x.Gender, "Male")
             @Html.Label("انثي", htmlAttributes: new { @class = "control-label text-right col-md-2" })
             @Html.RadioButtonFor(x => x.Gender, "female")
+            @Html.Label("ذكر", htmlAttributes: new { @class = "control-label text-right  col-md-2" })
+            @Html.RadioButtonFor(x => x.Gender, "Male")
             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -98,8 +98,8 @@
         <div class="col-md-4">
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.DropDownList("CountryId", null, "-- الدوله--", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.CityId, ViewBag.CityId as SelectList, "--  المدينه--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -114,8 +114,8 @@
         <div class="col-md-4">
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.DropDownListFor(x=>x.CityId, ViewBag.CityId as SelectList, "--  المدينه--", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                    @Html.DropDownList("CountryId", null, "-- الدوله--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -132,24 +132,24 @@
         <div class="col-md-4">
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.DropDownList("StudyYearId", null, "--  السنه الدراسيه--", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.StudyYearId, "", new { @class = "text-danger" })
+                    @Html.DropDownList("TermId", null, "--  الترم--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TermId, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div> 
         <div class="col-md-4">
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.DropDownList("SchooleId", null, "--  المدرسه--", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchooleId, "", new { @class = "text-danger" })
+                    @Html.DropDownList("StudyYearId", null, "--  السنه الدراسيه--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.StudyYearId, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.DropDownList("TermId", null, "--  الترم--", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.TermId, "", new { @class = "text-danger" })
+                    @Html.DropDownList("SchooleId", null, "--  المدرسه--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SchooleId, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>

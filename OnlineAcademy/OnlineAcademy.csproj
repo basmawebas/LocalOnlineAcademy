@@ -177,6 +177,7 @@
     <Compile Include="Areas\GovernTeacher\Data\GTIdentityConfig.cs" />
     <Compile Include="Areas\GovernTeacher\GovernTeacherAreaRegistration.cs" />
     <Compile Include="Areas\GovernTeacher\GTMigrations\GTConfiguration.cs" />
+    <Compile Include="Areas\PrivateTeacher\Controllers\PTHomeController.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTIdentity.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTIdentityConfig.cs" />
     <Compile Include="Areas\PrivateTeacher\PrivateTeacherAreaRegistration.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Areas\StudentArea\Data\StudentProfile.cs" />
     <Compile Include="Areas\StudentArea\StudentAreaAreaRegistration.cs" />
     <Compile Include="Areas\StudentArea\StudentMigration\StudentConfiguration.cs" />
+    <Compile Include="Areas\StudentArea\StudeventDataViewModel\StudentProfileVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
@@ -2580,6 +2582,7 @@
     <Content Include="Areas\StudentArea\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\StudentArea\Views\StudentHome\StudentHome.cshtml" />
     <Content Include="Images\empty_user.png" />
+    <Content Include="Images\Logo.jpg" />
     <Content Include="Images\u117.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -2606,7 +2609,6 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\StudentArea\Views\Shared\_StudentRightNavbar.cshtml" />
     <Content Include="Areas\StudentArea\Views\StudentAccount\Register.cshtml" />
-    <Content Include="Areas\StudentArea\Views\Shared\_StudentMainSidebar.cshtml" />
     <Content Include="Areas\StudentArea\Views\StudentProfiles\Create.cshtml" />
     <Content Include="Areas\StudentArea\Views\StudentProfiles\Delete.cshtml" />
     <Content Include="Areas\StudentArea\Views\StudentProfiles\Details.cshtml" />
@@ -2635,6 +2637,12 @@
     <Content Include="Areas\StudentArea\Views\Roles\Details.cshtml" />
     <Content Include="Areas\StudentArea\Views\Roles\Edit.cshtml" />
     <Content Include="Areas\StudentArea\Views\Roles\Index.cshtml" />
+    <Content Include="Areas\StudentArea\Views\StudentAccount\StudentLogin.cshtml" />
+    <Content Include="Areas\StudentArea\Views\Shared\_StudentMainSidebar.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\PTHome\PTHome.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Shared\_ListOfBestPTeacher.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2790,8 +2798,6 @@
     <Folder Include="Areas\CollageTeacher\Views\Shared\" />
     <Folder Include="Areas\GovernTeacher\Controllers\" />
     <Folder Include="Areas\GovernTeacher\Views\Shared\" />
-    <Folder Include="Areas\PrivateTeacher\Controllers\" />
-    <Folder Include="Areas\PrivateTeacher\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

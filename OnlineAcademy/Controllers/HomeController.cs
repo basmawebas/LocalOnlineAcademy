@@ -19,7 +19,14 @@ namespace OnlineAcademy.Controllers
         string cteacher = "دكتور جامعي";
         public ActionResult Index()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var student = sdb.Users.Where(x => x.Id == userId).SingleOrDefault();
+            if (student != null)
+            {
+                return RedirectToAction("StudentHome", "StudentHome", new { area = "StudentArea" });
+            }
+
+                return View();
         }
 
         public ActionResult Welcom()

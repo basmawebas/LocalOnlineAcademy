@@ -1,15 +1,16 @@
-﻿
+﻿@model OnlineAcademy.Areas.StudentArea.Data.StudentProfile
 @using Microsoft.AspNet.Identity
-@using OnlineAcademy.Models;
+@using OnlineAcademy.Areas.StudentArea.Data;
 
 
 @{
     var userId = User.Identity.GetUserId();
-    var db = new ApplicationDbContext();
+    var db = new StudentDbContext();
+    var profile = db.StudentProfiles.Where(x => x.UserId == userId).SingleOrDefault();
 }
-<a href="../../index3.html" class="brand-link">
-    <img src="~/Images/empty_user.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+<a href="#" class="brand-link">
+    <img src="~/Images/Logo.jpg" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">Online Academy OC </span>
 </a>
 
 <!-- Sidebar -->
@@ -17,10 +18,20 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
+
+            @if (profile.ProfileImage != null)
+            {
+
+                <img src="~/Uploads/Student/ProfileImage/@Html.DisplayFor(x=>profile.ProfileImage)" class="img-circle elevation-2" alt="User Image">
+            }
+            else
+            {
+
             <img src="~/Images/empty_user.png" class="img-circle elevation-2" alt="User Image">
+            }
         </div>
         <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block">@Html.DisplayFor(x => profile.FirstName) @Html.DisplayFor(x => profile.LastName)</a>
         </div>
     </div>
 
@@ -39,7 +50,7 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+            with font-awesome or any other icon font library -->
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-home"></i>
@@ -89,7 +100,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-file"></i>
                     <p>
-                        Forms
+                        الامتحانات والواجبات
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -98,7 +109,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon far fa-calendar-alt"></i>
                     <p>
-                        Tables
+                        النتيجه
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -127,7 +138,7 @@
                 <a href="../calendar.html" class="nav-link">
                     <i class="nav-icon fas fa-percent"></i>
                     <p>
-                        Calendar
+                        درجاتك
                         <span class="badge badge-info right">2</span>
                     </p>
                 </a>
@@ -174,7 +185,7 @@
                 <a href="../gallery.html" class="nav-link">
                     <i class="nav-icon fas fa-certificate "></i>
                     <p>
-                        Gallery
+                        شهاداتك
                     </p>
                 </a>
             </li>
@@ -182,7 +193,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fa fa-sun"></i>
                     <p>
-                        Mailbox
+                        المتفوقين
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -211,7 +222,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-info"></i>
                     <p>
-                        Pages
+                        المساعده
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -271,3 +282,4 @@
     </nav>
     <!-- /.sidebar-menu -->
 </div>
+

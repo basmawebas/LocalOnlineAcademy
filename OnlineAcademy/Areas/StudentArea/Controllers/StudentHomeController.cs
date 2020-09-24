@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace OnlineAcademy.Areas.StudentArea.Controllers
 {
-    [Authorize(Roles ="طالب")]
+    [Authorize]
     public class StudentHomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -24,6 +24,30 @@ namespace OnlineAcademy.Areas.StudentArea.Controllers
                 return RedirectToAction("Create", "StudentProfiles", new { area = "StudentArea" });
             }
             return View();
+        }
+
+        public ActionResult _StudentMainSidebar()
+        {
+                var userId = User.Identity.GetUserId();
+                var profile = sdb.StudentProfiles.Where(x => x.UserId == userId).SingleOrDefault();
+
+            return PartialView(profile);
+        }
+
+
+        public ActionResult Redirect()
+        {
+            var userId = User.Identity.GetUserId();
+            var profile = sdb.StudentProfiles.Where(x => x.UserId == userId).SingleOrDefault();
+            if(profile != null)
+            {
+                return RedirectToAction("StudentHome", "StudentHome", new { area= "StudentArea" });
+            }
+            else
+            {
+                return RedirectToAction("Create", "StudentProfiles", new { area = "StudentArea" });
+            }
+
         }
 
         public ActionResult Index()
