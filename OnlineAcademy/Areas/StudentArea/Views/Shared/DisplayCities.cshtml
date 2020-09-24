@@ -1,0 +1,10 @@
+﻿@model OnlineAcademy.Models.City
+
+<option value="">--select City</option>
+@if (ViewBag.citysList != null)
+{
+    foreach (var item in ViewBag.citysList)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}
