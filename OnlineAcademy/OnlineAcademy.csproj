@@ -169,6 +169,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\CollageTeacher\CollageTeacherAreaRegistration.cs" />
     <Compile Include="Areas\CollageTeacher\CTMigrations\CTConfiguration.cs" />
     <Compile Include="Areas\CollageTeacher\Data\CTIdentity.cs" />
@@ -177,9 +178,17 @@
     <Compile Include="Areas\GovernTeacher\Data\GTIdentityConfig.cs" />
     <Compile Include="Areas\GovernTeacher\GovernTeacherAreaRegistration.cs" />
     <Compile Include="Areas\GovernTeacher\GTMigrations\GTConfiguration.cs" />
+    <Compile Include="Areas\PrivateTeacher\Controllers\PTAccountController.cs" />
+    <Compile Include="Areas\PrivateTeacher\Controllers\PTAssistantController.cs" />
     <Compile Include="Areas\PrivateTeacher\Controllers\PTHomeController.cs" />
+    <Compile Include="Areas\PrivateTeacher\Controllers\RolesController.cs" />
+    <Compile Include="Areas\PrivateTeacher\Data\ApplierInfo.cs" />
+    <Compile Include="Areas\PrivateTeacher\Data\PTAccountViewModel.cs" />
+    <Compile Include="Areas\PrivateTeacher\Data\PTAssistant.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTIdentity.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTIdentityConfig.cs" />
+    <Compile Include="Areas\PrivateTeacher\Data\PTProfile.cs" />
+    <Compile Include="Areas\PrivateTeacher\Data\PTRole.cs" />
     <Compile Include="Areas\PrivateTeacher\PrivateTeacherAreaRegistration.cs" />
     <Compile Include="Areas\PrivateTeacher\PTMigrations\PTConfiguration.cs" />
     <Compile Include="Areas\StudentArea\Controllers\CurrentTermsController.cs" />
@@ -218,6 +227,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\PrivateTeacher\Content\img\download %281%29.jpg" />
+    <Content Include="Areas\PrivateTeacher\Content\img\download %282%29.jpg" />
+    <Content Include="Areas\PrivateTeacher\Content\img\download.jpg" />
+    <Content Include="Areas\PrivateTeacher\Content\img\images.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -2643,6 +2656,21 @@
     <Content Include="Areas\PrivateTeacher\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\PrivateTeacher\Views\PTHome\PTHome.cshtml" />
     <Content Include="Areas\PrivateTeacher\Views\Shared\_ListOfBestPTeacher.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\PTAccount\PTLogin.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\PTAccount\PTRegister.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Roles\Create.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Roles\Delete.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Roles\Details.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Roles\Edit.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Roles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\PrivateTeacher\Views\PTAssistant\AdvertiseForAssist.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\PTAssistant\Index.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Shared\_ListOfTeacher.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Shared\View.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Shared\_ListOfAdvertisements.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\PTAssistant\AdvertiseDetails.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\PTAssistant\ApplyForAssisJob.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2794,6 +2822,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Content\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\CollageTeacher\Controllers\" />
     <Folder Include="Areas\CollageTeacher\Views\Shared\" />
     <Folder Include="Areas\GovernTeacher\Controllers\" />

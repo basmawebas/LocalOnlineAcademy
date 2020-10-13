@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineAcademy.Areas.PrivateTeacher.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,21 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Controllers
 {
     public class PTHomeController : Controller
     {
+        private PrivateTeacherDbContext db = new PrivateTeacherDbContext();
+
+
         // GET: PrivateTeacher/PTHome
         public ActionResult PTHome()
         {
-            return View();
+            //var ass = db.PTAssistants.ToList();
+            //var sd = db.PTAssistants.ToList();
+            //ViewModelCalss model = new ViewModelCalss
+            //{
+            //    pTAssistants = ass,
+            //    sd = sd,
+            //};
+
+            return View(/*model*/);
         }
     }
 }

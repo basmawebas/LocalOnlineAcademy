@@ -1,7 +1,790 @@
-﻿
+﻿@model OnlineAcademy.Areas.PrivateTeacher.Data.PTAssistant
 @{
     ViewBag.Title = "PTHome";
+    Layout = null;
 }
 
-<h2>PTHome</h2>
+@*@Html.Action("GetTeachers", "PTAssistant", new { area="PrivateTeacher"})*@
 
+@*@foreach (var item in Model.pTAssistants)
+{
+    <p>@Html.DisplayFor(x => item.FullName)</p>
+}
+@foreach (var item in Model.sd)
+{
+    <p>@Html.DisplayFor(x => item.DateTime)</p>5
+}*@
+
+@*@Html.DropDownListFor(x=>x.Day,)*@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link href="~/Areas/Admin/Content/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+<!-- Theme style -->
+<link href="~/Areas/Admin/Content/dist/css/adminlte.min.css" rel="stylesheet" />
+
+<body class="hold-transition sidebar-mini sidebar-collapse">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../index3.html" class="nav-link">الصفحة الرئيسية</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">تواصل معنا</a>
+                </li>
+            </ul>
+
+
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-comments"></i>
+                        <span class="badge badge-danger navbar-badge">3</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Brad Diesel
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">Call me whenever you can...</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        John Pierce
+                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">I got your message bro</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Nora Silvester
+                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">The subject goes here</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                    </div>
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" role="button">
+                        <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-camera-video-fill" fill="blue" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5z" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+                @*<li class="nav-item">
+                        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                            <div class="image">
+                                <img src="~/Areas/Admin/Content/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                            </div>
+
+                        </div>
+                    </li>*@
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="../../index3.html" class="brand-link">
+                <img src="~/Areas/Admin/Content/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8" />
+                <span class="brand-text font-weight-light">المدرس الخاص</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/Areas/Admin/Content/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" />
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">بياناتي</a>
+                    </div>
+                </div>
+
+                <!-- SidebarSearch Form -->
+                <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="بحث" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                @*<nav class="mt-2">*@
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                            </svg>
+                            <p>&nbsp  الرئيسية</p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="../widgets.html" class="nav-link">
+
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                            </svg>
+                            <p style="padding-bottom:1px">
+                                &nbsp المجموعات
+
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class='fas fa-graduation-cap' style='font-size:36px;fill:currentColor'></i>
+                            <p>
+                                &nbsp المتفوقين
+
+                                <span class="badge badge-info right" style="margin-top:10px">6</span>
+                            </p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="../calendar.html" class="nav-link">
+                            <i class="nav-icon far fa-calendar-alt" style="font-size:36px;fill: currentColor"></i>
+                            <p>
+                                &nbspجدول المواعيد
+                                <span class="badge badge-info right">2</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-book" style="font-size:36px;fill: currentColor"></i>
+                            <p>
+                                &nbspالإمتحانات والواجبات
+                                <i class="fas fa-angle-left right" style="margin-top:10px"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../UI/general.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>واجبات</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../UI/icons.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>إمتحانات</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-percent" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0zM4.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm7 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                            </svg>
+                            <p>
+                                &nbsp  نتائج الإمتحانات
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../forms/general.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>إعدادي</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../forms/advanced.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ثانوي</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-camera-video-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5z" />
+                            </svg>
+                            <p>
+                                &nbsp بث مباشر
+
+                            </p>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../calendar.html" class="nav-link">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-sun" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 8a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0z" />
+                                <path fill-rule="evenodd" d="M8.202.28a.25.25 0 0 0-.404 0l-.91 1.255a.25.25 0 0 1-.334.067L5.232.79a.25.25 0 0 0-.374.155l-.36 1.508a.25.25 0 0 1-.282.19l-1.532-.245a.25.25 0 0 0-.286.286l.244 1.532a.25.25 0 0 1-.189.282l-1.509.36a.25.25 0 0 0-.154.374l.812 1.322a.25.25 0 0 1-.067.333l-1.256.91a.25.25 0 0 0 0 .405l1.256.91a.25.25 0 0 1 .067.334L.79 10.768a.25.25 0 0 0 .154.374l1.51.36a.25.25 0 0 1 .188.282l-.244 1.532a.25.25 0 0 0 .286.286l1.532-.244a.25.25 0 0 1 .282.189l.36 1.508a.25.25 0 0 0 .374.155l1.322-.812a.25.25 0 0 1 .333.067l.91 1.256a.25.25 0 0 0 .405 0l.91-1.256a.25.25 0 0 1 .334-.067l1.322.812a.25.25 0 0 0 .374-.155l.36-1.508a.25.25 0 0 1 .282-.19l1.532.245a.25.25 0 0 0 .286-.286l-.244-1.532a.25.25 0 0 1 .189-.282l1.508-.36a.25.25 0 0 0 .155-.374l-.812-1.322a.25.25 0 0 1 .067-.333l1.256-.91a.25.25 0 0 0 0-.405l-1.256-.91a.25.25 0 0 1-.067-.334l.812-1.322a.25.25 0 0 0-.155-.374l-1.508-.36a.25.25 0 0 1-.19-.282l.245-1.532a.25.25 0 0 0-.286-.286l-1.532.244a.25.25 0 0 1-.282-.189l-.36-1.508a.25.25 0 0 0-.374-.155l-1.322.812a.25.25 0 0 1-.333-.067L8.203.28zM8 2.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" />
+                            </svg>
+                            <p>
+                                &nbsp تحضير الدروس
+                                <span class="badge badge-info right">2</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../gallery.html" class="nav-link">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                            </svg>
+                            <p>
+                                &nbsp المساعدة
+                            </p>
+                        </a>
+                    </li>
+                    @*<li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-envelope"></i>
+                                <p>
+                                    Mailbox
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../mailbox/mailbox.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Inbox</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../mailbox/compose.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Compose</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../mailbox/read-mail.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Read</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>*@
+
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-info" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
+                                <circle cx="8" cy="4.5" r="1" />
+                            </svg>
+                            <p>عدد الحضور والغياب</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="~/PrivateTeacher/PTAssistant/AdvertiseForAssist" class="nav-link">
+                            <i class="fas fa-street-view" style="fill:currentColor;font-size:36px"></i>
+                            <p>&nbspطلب مساعد</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-user-cog" style="fill:currentColor;font-size:36px"></i>
+                            <p>&nbspصلاحيات المساعد</p>
+                        </a>
+                    </li>
+
+                </ul>
+                @*</nav>*@
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-md-12" style="padding-left:30%;">
+                            <!-- SEARCH FORM -->
+                            @*<form class="form-inline ml-3">
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-navbar" type="submit">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>*@
+                            <form method="Get">
+
+                                <div class="form-group" style="border:1px gray solid;border-radius:8px;width:50%">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" style="border:none;background-color:transparent">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </span>
+                                        <input type="search" class="form-control" value="" style="border:none;background-color:transparent;" placeholder="Search " />
+
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        @*<div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Layout</a></li>
+                                    <li class="breadcrumb-item active">Collapsed Sidebar</li>
+                                </ol>
+                            </div>*@
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Default box -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                                               aria-selected="true">عمل منشور</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                                               aria-selected="false">الصور</a>
+                                        </li>
+
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div style="border:2px solid #f4f6f9;padding-top:20px;margin-bottom:20px;margin-top:5px;height:70px">
+                                                بما تفكر؟
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-primary ">نشر المنشور</button>
+                                                <div class="dropdown float-right">
+                                                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-globe-asia" style="color:blue"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <a class="dropdown-item" href="#">Public</a>
+                                                        <a class="dropdown-item" href="#">Folowers</a>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="padding-top:10px">
+                                            <img src="~/Areas/PrivateTeacher/Content/img/download (1).jpg" style="height:150px;width:250px" />
+                                            <img src="~/Areas/PrivateTeacher/Content/img/download (2).jpg" style="height:150px;width:250px" />
+                                            <img src="~/Areas/PrivateTeacher/Content/img/images.jpg" style="height:150px;width:250px" />
+                                            <img src="~/Areas/PrivateTeacher/Content/img/download.jpg" style="height:150px;width:250px" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="card-body">
+
+                                    <div class="content">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <div class="card-header p-2">
+                                                            <ul class="nav nav-pills">
+                                                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
+                                                                <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
+                                                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                                                            </ul>
+                                                        </div><!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="tab-content">
+                                                                <div class="active tab-pane" id="activity">
+                                                                    <!-- Post -->
+                                                                    <div class="post">
+                                                                        <div class="user-block">
+                                                                            <img class="img-circle img-bordered-sm" src="~/Areas/Admin/Content/dist/img/user1-128x128.jpg" alt="user image" />
+
+                                                                            <span class="username">
+                                                                                <a href="#">Jonathan Burke Jr.</a>
+                                                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                                                                            </span>
+                                                                            <span class="description">Shared publicly - 7:30 PM today</span>
+                                                                        </div>
+                                                                        <!-- /.user-block -->
+                                                                        <p>
+                                                                            Lorem ipsum represents a long-held tradition for designers,
+                                                                            typographers and the like. Some people hate it and argue for
+                                                                            its demise, but others ignore the hate as they create awesome
+                                                                            tools to help create filler text for everyone from bacon lovers
+                                                                            to Charlie Sheen fans.
+                                                                        </p>
+
+                                                                        <p>
+                                                                            <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                                                                            <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                                                                            <span class="float-right">
+                                                                                <a href="#" class="link-black text-sm">
+                                                                                    <i class="far fa-comments mr-1"></i> Comments (5)
+                                                                                </a>
+                                                                            </span>
+                                                                        </p>
+
+                                                                        <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                                                                    </div>
+                                                                    <!-- /.post -->
+                                                                    <!-- Post -->
+                                                                    <div class="post clearfix">
+                                                                        <div class="user-block">
+                                                                            <img class="img-circle img-bordered-sm" src="~/Areas/Admin/Content/dist/img/user7-128x128.jpg" alt="User Image" />
+
+                                                                            <span class="username">
+                                                                                <a href="#">Sarah Ross</a>
+                                                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                                                                            </span>
+                                                                            <span class="description">Sent you a message - 3 days ago</span>
+                                                                        </div>
+                                                                        <!-- /.user-block -->
+                                                                        <p>
+                                                                            Lorem ipsum represents a long-held tradition for designers,
+                                                                            typographers and the like. Some people hate it and argue for
+                                                                            its demise, but others ignore the hate as they create awesome
+                                                                            tools to help create filler text for everyone from bacon lovers
+                                                                            to Charlie Sheen fans.
+                                                                        </p>
+
+                                                                        <form class="form-horizontal">
+                                                                            <div class="input-group input-group-sm mb-0">
+                                                                                <input class="form-control form-control-sm" placeholder="Response">
+                                                                                <div class="input-group-append">
+                                                                                    <button type="submit" class="btn btn-danger">Send</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- /.post -->
+                                                                    <!-- Post -->
+                                                                    <div class="post">
+                                                                        <div class="user-block">
+                                                                            <img class="img-circle img-bordered-sm" src="~/Areas/Admin/Content/dist/img/user6-128x128.jpg" alt="User Image" />
+                                                                            <span class="username">
+                                                                                <a href="#">Adam Jones</a>
+                                                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                                                                            </span>
+                                                                            <span class="description">Posted 5 photos - 5 days ago</span>
+                                                                        </div>
+                                                                        <!-- /.user-block -->
+                                                                        <div class="row mb-3">
+                                                                            <div class="col-sm-6">
+                                                                                <img class="img-fluid" src="~/Areas/Admin/Content/dist/img/photo1.png" alt="Photo" />
+
+                                                                            </div>
+                                                                            <!-- /.col -->
+                                                                            <div class="col-sm-6">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-6">
+                                                                                        <img class="img-fluid mb-3" src="~/Areas/Admin/Content/dist/img/photo2.png" alt="Photo" />
+
+                                                                                        <img class="img-fluid" src="~/Areas/Admin/Content/dist/img/photo3.jpg" alt="Photo" />
+                                                                                    </div>
+                                                                                    <!-- /.col -->
+                                                                                    <div class="col-sm-6">
+                                                                                        <img class="img-fluid mb-3" src="~/Areas/Admin/Content/dist/img/photo4.jpg" alt="Photo" />
+
+                                                                                        <img class="img-fluid" src="~/Areas/Admin/Content/dist/img/photo1.png" alt="Photo" />
+
+                                                                                    </div>
+                                                                                    <!-- /.col -->
+                                                                                </div>
+                                                                                <!-- /.row -->
+                                                                            </div>
+                                                                            <!-- /.col -->
+                                                                        </div>
+                                                                        <!-- /.row -->
+
+                                                                        <p>
+                                                                            <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                                                                            <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                                                                            <span class="float-right">
+                                                                                <a href="#" class="link-black text-sm">
+                                                                                    <i class="far fa-comments mr-1"></i> Comments (5)
+                                                                                </a>
+                                                                            </span>
+                                                                        </p>
+
+                                                                        <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                                                                    </div>
+                                                                    <!-- /.post -->
+                                                                </div>
+                                                                <!-- /.tab-pane -->
+                                                                <div class="tab-pane" id="timeline">
+                                                                    <!-- The timeline -->
+                                                                    <div class="timeline timeline-inverse">
+                                                                        <!-- timeline time label -->
+                                                                        <div class="time-label">
+                                                                            <span class="bg-danger">
+                                                                                10 Feb. 2014
+                                                                            </span>
+                                                                        </div>
+                                                                        <!-- /.timeline-label -->
+                                                                        <!-- timeline item -->
+                                                                        <div>
+                                                                            <i class="fas fa-envelope bg-primary"></i>
+
+                                                                            <div class="timeline-item">
+                                                                                <span class="time"><i class="far fa-clock"></i> 12:05</span>
+
+                                                                                <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                                                <div class="timeline-body">
+                                                                                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                                                                    weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                                                                    jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                                                                    quora plaxo ideeli hulu weebly balihoo...
+                                                                                </div>
+                                                                                <div class="timeline-footer">
+                                                                                    <a href="#" class="btn btn-primary btn-sm">Read more</a>
+                                                                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- END timeline item -->
+                                                                        <!-- timeline item -->
+                                                                        <div>
+                                                                            <i class="fas fa-user bg-info"></i>
+
+                                                                            <div class="timeline-item">
+                                                                                <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
+
+                                                                                <h3 class="timeline-header border-0">
+                                                                                    <a href="#">Sarah Young</a> accepted your friend request
+                                                                                </h3>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- END timeline item -->
+                                                                        <!-- timeline item -->
+                                                                        <div>
+                                                                            <i class="fas fa-comments bg-warning"></i>
+
+                                                                            <div class="timeline-item">
+                                                                                <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
+
+                                                                                <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
+
+                                                                                <div class="timeline-body">
+                                                                                    Take me to your leader!
+                                                                                    Switzerland is small and neutral!
+                                                                                    We are more like Germany, ambitious and misunderstood!
+                                                                                </div>
+                                                                                <div class="timeline-footer">
+                                                                                    <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- END timeline item -->
+                                                                        <!-- timeline time label -->
+                                                                        <div class="time-label">
+                                                                            <span class="bg-success">
+                                                                                3 Jan. 2014
+                                                                            </span>
+                                                                        </div>
+                                                                        <!-- /.timeline-label -->
+                                                                        <!-- timeline item -->
+                                                                        <div>
+                                                                            <i class="fas fa-camera bg-purple"></i>
+
+                                                                            <div class="timeline-item">
+                                                                                <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
+
+                                                                                <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+
+                                                                                <div class="timeline-body">
+                                                                                    <img src="https://placehold.it/150x100" alt="...">
+                                                                                    <img src="https://placehold.it/150x100" alt="...">
+                                                                                    <img src="https://placehold.it/150x100" alt="...">
+                                                                                    <img src="https://placehold.it/150x100" alt="...">
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- END timeline item -->
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="tab-pane" id="settings">
+                                                                    <form class="form-horizontal">
+                                                                        <div class="form-group row">
+                                                                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                                                                            <div class="col-sm-10">
+                                                                                <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <div class="offset-sm-2 col-sm-10">
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <div class="offset-sm-2 col-sm-10">
+                                                                                <button type="submit" class="btn btn-danger">Submit</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.card-body -->
+                                                            <div class="card-footer">
+                                                                Footer
+                                                            </div>
+                                                            <!-- /.card-footer-->
+                                                        </div>
+                                                        <!-- /.card -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Areas/Admin/Content/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Areas/Admin/Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Areas/Admin/Content/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Areas/Admin/Content/dist/js/demo.js"></script>
+
+</body>

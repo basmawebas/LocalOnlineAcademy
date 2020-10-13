@@ -1,0 +1,143 @@
+﻿
+@model OnlineAcademy.Areas.PrivateTeacher.Data.PTRegisterViewModel
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Private Teacher Register";
+    Layout = null;
+}
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <section class="text-center" style="margin-top:10%;">
+        <h4>انت بالفعل مسجل لدينا  </h4>
+        <a href="~/Home/welcom" class="btn btn-light" style="background-color:#2979ff;color:#fff;border-radius:25px;">استمرار</a>
+        @using (Html.BeginForm("LogOff", "Account", new { area = false }, FormMethod.Post,new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()" id="logout" class="btn btn-light" style="background-color:#2979ff;color:#fff;border-radius:25px;">خروج</a>
+        }
+    </section>
+}
+else
+{
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> OnlineCenter| Registration </title>
+
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+        <link rel="stylesheet" href="~/Content/plugins/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="~/Content/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <link rel="stylesheet" href="~/Content/dist/css/adminlte.min.css">
+    </head>
+    <body class="hold-transition register-page">
+        <div class="register-box">
+            <div class="register-logo">
+                <a href="~/Home/Index"><b>Online Center</b>OC</a>
+            </div>
+            @using (Html.BeginForm("PTRegister", "PTAccount", new { area = "PrivateTeacher" }, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form", id = "registerform" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                <div class="card">
+                    <div class="card-body register-card-body">
+                        <p class="login-box-msg">انشاء حساب مدرس خاص جديد</p>
+
+                        <form action="#" method="post">
+
+                            <div class="input-group mb-3">
+                                <!--
+           2#
+           كان في عندي ID اسمه RoleName الي هو نفس اسم البروبيرتي اساساودا خده ورجع بيه تاني
+           ياعني لما فتحنا المتصفح اخد القيمه ومسحها في نفس الوقت
+           (m => m.RoleName هنا اخد القيمه
+    "RoleName" ,وهنا فرغها تاني 
+
+       -->
+                                @Html.DropDownListFor(m => m.RoleName, new SelectList(ViewBag.Roles, "Value", "Text"), new { @class = "form-control text-center" })
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user-circle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control text-right", placeholder = "البريد الالكتروني" })
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control text-right", placeholder = "كلمه المرور" })
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-center text-danger" style=" font-size: 14px;">  Abc123! : مثال   </p>
+                            <div class="input-group mb-3">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control text-right", placeholder = "تاكيد كلمه المرور" })
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="icheck-primary">
+                                        <input type="checkbox" required id="agreeTerms" name="terms" value="agree">
+                                        <label for="agreeTerms" style="font-size: 12px;">
+                                            اوافق علي سياسه  <a href="#">الخصوصيه</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-primary btn-block">تسجيل</button>
+                                    @*<a href="javascript:document.getElementById('registerform').submit()" class="btn btn-primary">التالي</a>*@
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </form>
+
+                        <div class="social-auth-links text-center">
+                            <p>- او -</p>
+                            <a href="#" class="btn btn-block btn-primary">
+                                <i class="fab fa-facebook mr-2"></i>
+                                التسجيل بواسطه فيسبوك
+                            </a>
+                            <a href="#" class="btn btn-block btn-danger">
+                                <i class="fab fa-google-plus mr-2"></i>
+                                التسجيل بواسطه جوجل
+                            </a>
+                        </div>
+
+                        <a href="@Url.Action("PTLogin","PTAccount",new { area="PrivateTeacher"})" class="float-right">لدي حساب بالفعل</a>
+                    </div>
+                    <!-- /.form-box -->
+                </div><!-- /.card -->
+            }
+        </div>
+        <!-- /.register-box -->
+        <!-- jQuery -->
+        <script src="~/Content/plugins/jquery/jquery.min.js"></script>
+        <script src="~/Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Content/dist/js/adminlte.min.js"></script>
+    </body>
+</html>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

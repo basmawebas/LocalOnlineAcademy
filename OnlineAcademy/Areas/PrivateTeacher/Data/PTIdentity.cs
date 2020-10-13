@@ -10,10 +10,10 @@ using System.Web;
 
 namespace OnlineAcademy.Areas.PrivateTeacher.Data
 {
-    public class PTUser : IdentityUser
+    public class AspNetUsers : IdentityUser
     {
         public string RoleName { get; set; }
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<PTUser> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AspNetUsers> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -21,7 +21,7 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Data
             return userIdentity;
         }
     }
-    public class PrivateTeacherDbContext : IdentityDbContext<PTUser>
+    public class PrivateTeacherDbContext : IdentityDbContext<AspNetUsers>
     {
         public PrivateTeacherDbContext()
             : base("PrivateTeacherConnection", throwIfV1Schema: false)
@@ -32,6 +32,9 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Data
         {
             return new PrivateTeacherDbContext();
         }
+        public System.Data.Entity.DbSet<OnlineAcademy.Areas.PrivateTeacher.Data.PTProfile> PTProfiles { get; set; }
 
+        public System.Data.Entity.DbSet<OnlineAcademy.Areas.PrivateTeacher.Data.PTAssistant> PTAssistants { get; set; }
+        public System.Data.Entity.DbSet<OnlineAcademy.Areas.PrivateTeacher.Data.ApplierInfo> ApplierInfos { get; set; }
     }
 }

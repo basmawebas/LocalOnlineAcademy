@@ -1,0 +1,76 @@
+﻿@model IEnumerable<OnlineAcademy.Areas.PrivateTeacher.Data.PTAssistant>
+<div class="card">
+    <div class="card-header" style="padding-left:40%">
+        <h3 class="card-title">قائمة إعلانات الوظائف</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+       
+        <table id="example1" class="table table-bordered table-striped dir:rtl">
+            <thead>
+                <tr style="text-align:center">
+
+                    <th>التفاصيل</th>
+
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Duration)*@
+                        الدوام
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.DateTime)*@
+                        تاريخ الإعلان
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.salary)*@
+                        المرتب
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.PTUser.UserName)*@
+                        إسم المدرس
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                <tr style="text-align:center">
+
+
+
+
+                    <td>
+                        @Html.ActionLink("تفاصيل الإعلان", "AdvertiseDetails", "PTAssistant", new { UserId = item.Id, area = "PrivateTeacher" },null)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duration)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.salary)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PTUser.UserName)
+                    </td>
+                   
+                </tr>
+                }
+           
+            </tbody>
+            @*<tfoot>
+                <tr>
+                    <th>Rendering engine</th>
+                    <th>Browser</th>
+                    <th>Platform(s)</th>
+                    <th>Engine version</th>
+                    <th>Details</th>
+                </tr>
+            </tfoot>*@
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->

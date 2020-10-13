@@ -13,6 +13,7 @@ using System.Web;
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
+            MigrationsDirectory = @"PTConfiguration";
         }
 
         protected override void Seed(PrivateTeacherDbContext context)

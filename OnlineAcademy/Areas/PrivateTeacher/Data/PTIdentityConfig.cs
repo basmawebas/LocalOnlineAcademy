@@ -36,18 +36,18 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Data
     }
 
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
-    public class PTUserManager : UserManager<PTUser>
+    public class PTUserManager : UserManager<AspNetUsers>
     {
-        public PTUserManager(IUserStore<PTUser> store)
+        public PTUserManager(IUserStore<AspNetUsers> store)
             : base(store)
         {
         }
 
         public static PTUserManager Create(IdentityFactoryOptions<PTUserManager> options, IOwinContext context)
         {
-            var manager = new PTUserManager(new UserStore<PTUser>(context.Get<PrivateTeacherDbContext>()));
+            var manager = new PTUserManager(new UserStore<AspNetUsers>(context.Get<PrivateTeacherDbContext>()));
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<PTUser>(manager)
+            manager.UserValidator = new UserValidator<AspNetUsers>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -57,10 +57,10 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Data
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                //RequireNonLetterOrDigit = true,
+                //RequireDigit = true,
+                //RequireLowercase = true,
+                //RequireUppercase = true,
             };
 
             // Configure user lockout defaults
@@ -70,11 +70,11 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Data
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<PTUser>
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<AspNetUsers>
             {
                 MessageFormat = "Your security code is {0}"
             });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<PTUser>
+            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<AspNetUsers>
             {
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
@@ -85,21 +85,21 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Data
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider =
-                    new DataProtectorTokenProvider<PTUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<AspNetUsers>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }
     }
 
     // Configure the application sign-in manager which is used in this application.
-    public class PTSignInManager : SignInManager<PTUser, string>
+    public class PTSignInManager : SignInManager<AspNetUsers, string>
     {
         public PTSignInManager(PTUserManager userManager, IAuthenticationManager authenticationManager)
             : base(userManager, authenticationManager)
         {
         }
 
-        public override Task<ClaimsIdentity> CreateUserIdentityAsync(PTUser user)
+        public override Task<ClaimsIdentity> CreateUserIdentityAsync(AspNetUsers user)
         {
             return user.GenerateUserIdentityAsync((PTUserManager)UserManager);
         }
