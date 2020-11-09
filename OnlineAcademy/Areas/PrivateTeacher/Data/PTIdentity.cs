@@ -36,5 +36,7 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Data
 
         public System.Data.Entity.DbSet<OnlineAcademy.Areas.PrivateTeacher.Data.PTAssistant> PTAssistants { get; set; }
         public System.Data.Entity.DbSet<OnlineAcademy.Areas.PrivateTeacher.Data.ApplierInfo> ApplierInfos { get; set; }
+        public System.Data.Entity.DbSet<OnlineAcademy.Areas.PrivateTeacher.Data.VideoFiles>VideoFiles { get; set; }
+
     }
 }

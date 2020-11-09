@@ -178,10 +178,12 @@
     <Compile Include="Areas\GovernTeacher\Data\GTIdentityConfig.cs" />
     <Compile Include="Areas\GovernTeacher\GovernTeacherAreaRegistration.cs" />
     <Compile Include="Areas\GovernTeacher\GTMigrations\GTConfiguration.cs" />
+    <Compile Include="Areas\PrivateTeacher\Controllers\HelpController.cs" />
     <Compile Include="Areas\PrivateTeacher\Controllers\PTAccountController.cs" />
     <Compile Include="Areas\PrivateTeacher\Controllers\PTAssistantController.cs" />
     <Compile Include="Areas\PrivateTeacher\Controllers\PTHomeController.cs" />
     <Compile Include="Areas\PrivateTeacher\Controllers\RolesController.cs" />
+    <Compile Include="Areas\PrivateTeacher\Controllers\VideoController.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\ApplierInfo.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTAccountViewModel.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTAssistant.cs" />
@@ -189,6 +191,7 @@
     <Compile Include="Areas\PrivateTeacher\Data\PTIdentityConfig.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTProfile.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTRole.cs" />
+    <Compile Include="Areas\PrivateTeacher\Data\VideoFiles.cs" />
     <Compile Include="Areas\PrivateTeacher\PrivateTeacherAreaRegistration.cs" />
     <Compile Include="Areas\PrivateTeacher\PTMigrations\PTConfiguration.cs" />
     <Compile Include="Areas\StudentArea\Controllers\CurrentTermsController.cs" />
@@ -231,6 +234,10 @@
     <Content Include="Areas\PrivateTeacher\Content\img\download %282%29.jpg" />
     <Content Include="Areas\PrivateTeacher\Content\img\download.jpg" />
     <Content Include="Areas\PrivateTeacher\Content\img\images.jpg" />
+    <Content Include="Areas\PrivateTeacher\Content\owl.carousel.min.css" />
+    <Content Include="Areas\PrivateTeacher\Content\pe-icon-7-stroke.css" />
+    <Content Include="Areas\PrivateTeacher\Content\rotating-card.css" />
+    <Content Include="Areas\PrivateTeacher\Content\Style.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -407,6 +414,8 @@
     <Content Include="Content\docs\_includes\sidebar.html" />
     <Content Include="Content\docs\_layouts\default.html" />
     <Content Include="Content\docs\_layouts\page.html" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\jquery.jqGrid\ellipsis-xbl.xml" />
     <Content Include="Content\jquery.jqGrid\ui.jqgrid.css" />
     <Content Include="Content\pages\calendar.html" />
@@ -2352,6 +2361,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Areas\StudentArea\Views\web.config" />
@@ -2594,9 +2604,25 @@
     <Content Include="Areas\StudentArea\Views\_ViewStart.cshtml" />
     <Content Include="Areas\StudentArea\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\StudentArea\Views\StudentHome\StudentHome.cshtml" />
+    <Content Include="Images\1_M_PoTEmelbIbw3nLcWHjSg.png" />
+    <Content Include="Images\depositphotos_56450863-stock-photo-online-chat-talk-bubble-icon.jpg" />
+    <Content Include="Images\download %281%29.png" />
+    <Content Include="Images\download %282%29.png" />
+    <Content Include="Images\download.jpg" />
+    <Content Include="Images\Email-marketing-2.png" />
     <Content Include="Images\empty_user.png" />
+    <Content Include="Images\images.jpg" />
     <Content Include="Images\Logo.jpg" />
+    <Content Include="Images\rotating_card_profile.png" />
+    <Content Include="Images\rotating_card_profile2.png" />
+    <Content Include="Images\rotating_card_profile3.png" />
+    <Content Include="Images\rotating_card_thumb.jpg" />
+    <Content Include="Images\rotating_card_thumb.png" />
+    <Content Include="Images\rotating_card_thumb2.png" />
+    <Content Include="Images\rotating_card_thumb3.png" />
+    <Content Include="Images\tim_logo.png" />
     <Content Include="Images\u117.png" />
+    <Content Include="Images\you-x-ventures-Oalh2MojUuk-unsplash.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2671,6 +2697,15 @@
     <Content Include="Areas\PrivateTeacher\Views\Shared\_ListOfAdvertisements.cshtml" />
     <Content Include="Areas\PrivateTeacher\Views\PTAssistant\AdvertiseDetails.cshtml" />
     <Content Include="Areas\PrivateTeacher\Views\PTAssistant\ApplyForAssisJob.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Help\HelpPage.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\PrivateTeacher\Views\Shared\_FrequentQuestions.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Help\FrequentQuestions.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\Video\UploadVideo.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2830,6 +2865,7 @@
     <Folder Include="Areas\CollageTeacher\Views\Shared\" />
     <Folder Include="Areas\GovernTeacher\Controllers\" />
     <Folder Include="Areas\GovernTeacher\Views\Shared\" />
+    <Folder Include="VideoFileUpload\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
