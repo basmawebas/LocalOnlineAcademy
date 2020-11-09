@@ -95,7 +95,7 @@
                         </div>
                         <div class="footer">
                             @*@Html.ActionLink("تفاصيل الإعلان", "AdvertiseDetails", "PTAssistant", new { UserId = item.Id, area = "PrivateTeacher" }, null)*@
-                            @Html.ActionLink("حذف الفيديو", "Delete","Video", new { id = item.ID , area = "PrivateTeacher" }, null)
+                            @Html.ActionLink("حذف الفيديو", "Delete","Video", new { id = item.ID , area = "PrivateTeacher" }, new { @style = "margin-top:8px;margin-left:35%",@class="btn btn-outline-danger" })
                             @*<button type="submit" class="btn btn-outline-danger" style="margin-top:8px;margin-left:40%" id="@item.ID" >Remove</button>*@
 
                         </div>

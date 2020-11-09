@@ -320,4 +320,3 @@ C:\Users\Basma\source\repos\New Course Project\OnlineAcademy\OnlineAcademy\obj\D
 C:\Users\Basma\source\repos\New Course Project\OnlineAcademy\OnlineAcademy\obj\Debug\OnlineAcademy.csproj.CopyComplete
 C:\Users\Basma\source\repos\New Course Project\OnlineAcademy\OnlineAcademy\obj\Debug\OnlineAcademy.dll
 C:\Users\Basma\source\repos\New Course Project\OnlineAcademy\OnlineAcademy\obj\Debug\OnlineAcademy.pdb
-C:\Users\Basma\source\repos\New Course Project\OnlineAcademy\OnlineAcademy\obj\Debug\OnlineAcademy.csprojAssemblyReference.cache

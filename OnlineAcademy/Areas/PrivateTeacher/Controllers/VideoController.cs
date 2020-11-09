@@ -58,17 +58,6 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Controllers
                 int Size = fileSize / 1000;
                 fileupload.SaveAs(Server.MapPath("~/VideoFileUpload/" + fileName));
 
-                //string CS = ConfigurationManager.ConnectionStrings["PrivateTeacherConnection"].ConnectionString;
-                //using (SqlConnection con = new SqlConnection(CS))
-                //{
-                //    SqlCommand cmd = new SqlCommand("spAddNewVideoFile", con);
-                //    cmd.CommandType = CommandType.StoredProcedure;
-                //    con.Open();
-                //    cmd.Parameters.AddWithValue("@Name", fileName);
-                //    cmd.Parameters.AddWithValue("@FileSize", Size);
-                //    cmd.Parameters.AddWithValue("FilePath", "~/VideoFileUpload/" + fileName);
-                //    cmd.ExecuteNonQuery();
-                //}
                 VideoFiles model = new VideoFiles();
                 model.Name = fileName;
                 model.FilePath = "~/VideoFileUpload/" + fileName;
@@ -93,8 +82,6 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Controllers
             {
                 string videoPath = Server.MapPath(deletevideo.FilePath.ToString());
                 System.IO.File.Delete(videoPath);
-                //string[] files = Directory.GetFiles(videoPath);
-                //File.Delete()
                 db.VideoFiles.Remove(deletevideo);
                 db.SaveChanges();
                 
