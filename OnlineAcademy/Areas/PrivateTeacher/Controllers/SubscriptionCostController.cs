@@ -16,6 +16,9 @@ namespace OnlineAcademy.Areas.PrivateTeacher.Controllers
         public ActionResult ShowSubscriptionTypes()
         {
             return View();
+        }public ActionResult ExactDesignSubscTypes()
+        {
+            return View();
         }
     }
 }
