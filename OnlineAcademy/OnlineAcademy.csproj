@@ -183,6 +183,7 @@
     <Compile Include="Areas\PrivateTeacher\Controllers\PTAssistantController.cs" />
     <Compile Include="Areas\PrivateTeacher\Controllers\PTHomeController.cs" />
     <Compile Include="Areas\PrivateTeacher\Controllers\RolesController.cs" />
+    <Compile Include="Areas\PrivateTeacher\Controllers\SubscriptionCostController.cs" />
     <Compile Include="Areas\PrivateTeacher\Controllers\VideoController.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\ApplierInfo.cs" />
     <Compile Include="Areas\PrivateTeacher\Data\PTAccountViewModel.cs" />
@@ -238,6 +239,7 @@
     <Content Include="Areas\PrivateTeacher\Content\pe-icon-7-stroke.css" />
     <Content Include="Areas\PrivateTeacher\Content\rotating-card.css" />
     <Content Include="Areas\PrivateTeacher\Content\Style.css" />
+    <Content Include="Areas\PrivateTeacher\Content\Taskstyle.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -2606,6 +2608,7 @@
     <Content Include="Areas\StudentArea\Views\StudentHome\StudentHome.cshtml" />
     <Content Include="Images\1_M_PoTEmelbIbw3nLcWHjSg.png" />
     <Content Include="Images\depositphotos_56450863-stock-photo-online-chat-talk-bubble-icon.jpg" />
+    <Content Include="Images\designtask.jpg" />
     <Content Include="Images\download %281%29.png" />
     <Content Include="Images\download %282%29.png" />
     <Content Include="Images\download.jpg" />
@@ -2706,6 +2709,7 @@
     <Content Include="Areas\PrivateTeacher\Views\Shared\_FrequentQuestions.cshtml" />
     <Content Include="Areas\PrivateTeacher\Views\Help\FrequentQuestions.cshtml" />
     <Content Include="Areas\PrivateTeacher\Views\Video\UploadVideo.cshtml" />
+    <Content Include="Areas\PrivateTeacher\Views\SubscriptionCost\ShowSubscriptionTypes.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
